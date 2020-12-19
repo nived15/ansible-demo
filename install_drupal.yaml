@@ -1,0 +1,12 @@
+- hosts: webserver
+  vars_files:
+    - vars/main.yml
+  roles:
+    - geerlingguy.apache
+    - geerlingguy.mysql
+    - geerlingguy.php-versions
+    - geerlingguy.php
+    - geerlingguy.php-mysql
+    - geerlingguy.composer
+    - geerlingguy.drush
+    - geerlingguy.drupal
