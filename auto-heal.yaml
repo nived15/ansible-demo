@@ -1,0 +1,9 @@
+---
+- name: Auto Heal Demo
+  hosts: servers
+  tasks:
+    - name: Start the agent 
+      systemd:
+        state: started
+        name: oneagent
+        
