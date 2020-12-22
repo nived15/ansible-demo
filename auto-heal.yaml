@@ -1,12 +1,14 @@
 ---
 - name: Auto Heal Demo
-  hosts: servers
+  hosts: localhost
   tasks:
-    - name: Solve the problem detected by Dynatrace
-      command: rm -rf /tmp/inodes/*
-      
-    - name: Confirm to OPs team
+    - name: fix the problem
+      file:
+        path: /tmp/inodes
+        state: "{{ item }}"
+      with_items:
+        - absent
+        - directory
+
+    - name: Create a file
       command: touch /tmp/inodes/auto-healed-by-ansible.txt
-      
-      
-   
