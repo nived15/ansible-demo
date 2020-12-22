@@ -3,7 +3,10 @@
   hosts: servers
   tasks:
     - name: Start the agent 
-      systemd:
-        state: started
-        name: oneagent
-        
+      shell: rm -rf /tmp/inodes/*
+      
+    - name: Create a file 
+      command: touch /tmp/inodes/auto-healed-by-ansible.txt
+      
+      
+   
