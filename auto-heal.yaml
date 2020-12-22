@@ -2,10 +2,10 @@
 - name: Auto Heal Demo
   hosts: servers
   tasks:
-    - name: Start the agent 
-      shell: rm -rf /tmp/inodes/*
+    - name: Solve the problem detected by Dynatrace
+      command: rm -rf /tmp/inodes/*
       
-    - name: Create a file 
+    - name: Confirm to OPs team
       command: touch /tmp/inodes/auto-healed-by-ansible.txt
       
       
