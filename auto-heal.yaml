@@ -1,14 +1,33 @@
 ---
 - name: Auto Heal Demo
-  hosts: localhost
+  hosts: autoheal
   tasks:
-    - name: fix the problem
-      file:
-        path: /tmp/inodes
-        state: "{{ item }}"
-      with_items:
-        - absent
-        - directory
+   - name: Sleep for 3 minutes
+     wait_for:
+       timeout: 3
+     delegate_to: localhost
 
-    - name: Create a file
-      command: touch /tmp/inodes/auto-healed-by-ansible.txt
+   - name: Create a directory to keep logs
+     file:
+       path: /opt/logs_archive
+       state: "{{ item }}"
+     with_items:
+       - absent
+       - directory
+
+   - name: Move data from logs directory to archive directory
+     synchronize:
+       src: /app/logs/{{ item }}
+       dest: /opt/logs_archive/{{ item }}
+     delegate_to: "{{ inventory_hostname }}"
+     with_items:
+       - app.logs.1
+       - app.logs
+
+   - name: Clean the old log files
+     file:
+       path: /app/logs/{{ item }}
+       state: absent
+     with_items:
+        - app.logs.1
+        - app.logs
