@@ -4,7 +4,7 @@
   tasks:
    - name: Sleep for 3 minutes
      wait_for:
-       timeout: 3
+       timeout: 60
      delegate_to: localhost
 
    - name: Create a directory to keep logs
