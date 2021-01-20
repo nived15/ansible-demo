@@ -7,3 +7,4 @@
 - src: geerlingguy.drush
 - src: https://github.com/MindPointGroup/RHEL7-CIS.git
 - src: geerlingguy.drupal
+- src: atosatto.grafana
