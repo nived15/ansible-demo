@@ -1,0 +1,4 @@
+- name: "Install and configure Grafana"
+  hosts: grafana-servers
+  roles:
+    - { role: atosatto.grafana }
