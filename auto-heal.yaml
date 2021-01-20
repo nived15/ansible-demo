@@ -1,6 +1,7 @@
 ---
 - name: Auto Heal Demo
   hosts: autoheal
+  gather_facts: no
   tasks:
    - name: Sleep for 3 minutes
      wait_for:
