@@ -1,5 +1,5 @@
 - name: Harden Server
-  hosts: servers
+  hosts: server-hardening
   become: yes
 
   roles:
