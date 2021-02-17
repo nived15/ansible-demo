@@ -17,9 +17,7 @@
        - directory
 
    - name: Move data from logs directory to archive directory
-     synchronize:
-       src: /app/logs/{{ item }}
-       dest: /opt/logs_archive/{{ item }}
+     shell: cp /app/logs/{{ item }} /opt/logs_archive/{{ item }}
      delegate_to: "{{ inventory_hostname }}"
      with_items:
        - app.logs.1
