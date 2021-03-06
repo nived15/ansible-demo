@@ -17,7 +17,7 @@
        - directory
 
    - name: Move data from logs directory to archive directory
-     shell: cp /var/lib/data{{ item }} /opt/logs_archive/{{ item }}
+     shell: cp /var/lib/data/{{ item }} /opt/logs_archive/{{ item }}
      delegate_to: "{{ inventory_hostname }}"
      with_items:
        - test.file
@@ -25,7 +25,7 @@
 
    - name: Clean the old log files
      file:
-       path: /app/logs/{{ item }}
+       path: /var/lib/data/{{ item }}
        state: absent
      with_items:
         - test.file
