@@ -1,6 +1,6 @@
 ---
 - name: Auto Heal Demo
-  hosts: autoheal
+  hosts: webservers
   gather_facts: no
   tasks:
    - name: Sleep for 3 minutes
@@ -17,11 +17,10 @@
        - directory
 
    - name: Move data from logs directory to archive directory
-     shell: cp /app/logs/{{ item }} /opt/logs_archive/{{ item }}
+     shell: cp /var/lib/data{{ item }} /opt/logs_archive/{{ item }}
      delegate_to: "{{ inventory_hostname }}"
      with_items:
-       - app.logs.1
-       - app.logs
+       - test.file
      ignore_errors: yes
 
    - name: Clean the old log files
@@ -29,6 +28,5 @@
        path: /app/logs/{{ item }}
        state: absent
      with_items:
-        - app.logs.1
-        - app.logs
+        - test.file
      ignore_errors: yes
