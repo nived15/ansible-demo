@@ -5,6 +5,6 @@
 - src: geerlingguy.php-mysql
 - src: geerlingguy.composer
 - src: geerlingguy.drush
-- src: https://github.com/MindPointGroup/RHEL7-CIS.git
+- src: https://github.com/nived15/RHEL8-CIS.git
 - src: geerlingguy.drupal
 - src: atosatto.grafana
