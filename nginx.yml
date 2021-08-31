@@ -1,7 +1,7 @@
 ---
 - hosts: webservers
   vars:
-    user: www-data
+    user: "$USER"
     worker_processes: 2
     pid: /run/nginx.pid
     worker_connections: 768
