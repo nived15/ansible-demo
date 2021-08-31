@@ -3,5 +3,5 @@
   become: yes
 
   roles:
-    - RHEL7-CIS
+    - RHEL8-CIS
 
